@@ -1,0 +1,15 @@
+services:
+  app:
+    build:
+      target: production
+    env_file:
+      - .env
+    environment:
+      NODE_ENV: production
+
+  db:
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:

@@ -1,0 +1,21 @@
+services:
+  app:
+    container_name: marketplace.backend
+    build:
+      context: .
+    ports:
+      - "${API_PORT}:${API_PORT}"
+    env_file:
+      - .env
+    restart: always
+
+  db:
+    container_name: marketplace.database
+    image: postgres:16.4-alpine
+    restart: always
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    volumes:
+      - ./data/psql:/var/lib/postgresql/data

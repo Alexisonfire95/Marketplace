@@ -1,8 +1,6 @@
 import {
-  Collection,
   Entity,
   Enum,
-  OneToMany,
   OneToOne,
   PrimaryKey,
   Property,
@@ -23,7 +21,7 @@ export class User {
   @Property({ unique: true })
   email!: string;
 
-  @Property({ hidden: true }) // Приховуємо хеш пароля від серіалізації
+  @Property({ hidden: true })
   passwordHash!: string;
 
   @Enum(() => UserRole)
@@ -40,7 +38,4 @@ export class User {
     orphanRemoval: true,
   })
   profile!: UserProfile;
-
-  // Інші зв'язки (OneToMany) будуть додані пізніше,
-  // коли відповідні сутності будуть створені.
 }

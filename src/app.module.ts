@@ -4,7 +4,8 @@ import { MikroOrmModule } from "@mikro-orm/nestjs";
 import { PostgreSqlDriver } from "@mikro-orm/postgresql";
 import { config } from "./config/config";
 import { getMikroOrmConfig } from "./config/database.config";
-import { UserModule } from "./user/user.module"; // <--- ІМПОРТУЄМО НОВИЙ МОДУЛЬ
+import { UserModule } from "./user/user.module";
+import { AuthModule } from "./auth/auth.module";
 
 @Module({
   imports: [
@@ -15,7 +16,8 @@ import { UserModule } from "./user/user.module"; // <--- ІМПОРТУЄМО Н
       driver: PostgreSqlDriver,
       inject: [ConfigService],
     }),
-    UserModule, // <--- РЕЄСТРУЄМО ЙОГО ТУТ
+    UserModule,
+    AuthModule,
   ],
   exports: [ConfigModule],
 })

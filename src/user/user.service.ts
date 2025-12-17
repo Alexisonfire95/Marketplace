@@ -9,6 +9,4 @@ export class UserService {
     @InjectRepository(User)
     private readonly userRepository: EntityRepository<User>,
   ) {}
-
-  // Тут буде бізнес-логіка для роботи з користувачами
 }

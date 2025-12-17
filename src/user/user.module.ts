@@ -7,6 +7,6 @@ import { UserService } from './user.service';
 @Module({
   imports: [MikroOrmModule.forFeature([User, UserProfile])],
   providers: [UserService],
-  exports: [UserService], // Ми експортуємо сервіс, щоб потім використати його в модулі аутентифікації
+  exports: [UserService],
 })
 export class UserModule {}

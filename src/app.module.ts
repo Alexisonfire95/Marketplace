@@ -1,9 +1,9 @@
-import { Module } from "@nestjs/common";
-import { ConfigModule, ConfigService } from "@nestjs/config";
-import { MikroOrmModule } from "@mikro-orm/nestjs";
-import { PostgreSqlDriver } from "@mikro-orm/postgresql";
-import { config } from "./config/config";
-import { getMikroOrmConfig } from "./config/database.config";
+import { Module } from "@nestjs/common"
+import { ConfigModule, ConfigService } from "@nestjs/config"
+import { MikroOrmModule } from "@mikro-orm/nestjs"
+import { PostgreSqlDriver } from "@mikro-orm/postgresql"
+import { config } from "./config/config"
+import { getMikroOrmConfig } from "./config/database.config"
 
 @Module({
   imports: [
@@ -12,9 +12,9 @@ import { getMikroOrmConfig } from "./config/database.config";
       imports: [ConfigModule],
       useFactory: getMikroOrmConfig,
       driver: PostgreSqlDriver,
-      inject: [ConfigService],
-    }),
+      inject: [ConfigService]
+    })
   ],
-  exports: [ConfigModule],
+  exports: [ConfigModule]
 })
 export class AppModule {}
